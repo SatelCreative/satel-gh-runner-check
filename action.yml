@@ -1,14 +1,15 @@
 name: Satel-github-runner-status
 description: Checks the status of a self-hosted runner
+
 inputs:
+  runner-name:
+    description: Name of the self-hosted runner
+    required: true 
   github-admin-token:
     description: Token that can read runner data
     required: true
   github-api-version:
     description: Stable api version
-    required: true  
-  runner-name:
-    description: Name of the self-hosted runner
     required: true  
 
 outputs:
@@ -22,8 +23,8 @@ runs:
     - name: Check runner status
       id: status-check
       env: 
+        RUNNER_NAME: ${{ inputs.runner-name }}
         GITHUB_ADMIN_TOKEN: ${{ inputs.github-admin-token }}
         GITHUB_API_VERSION: ${{ inputs.github-api-version }}
-        RUNNER_NAME: ${{ inputs.runner-name }}
-      run: echo ${{ inputs.runner-name }} # ${{ github.action_path }}/CheckStatus.sh  
+      run: ${{ github.action_path }}/CheckStatus.sh  
       shell: bash
