@@ -23,7 +23,8 @@ runs:
     - name: Check runner status
       id: status-check
       env: 
+        RUNNER_NAMES: ${{ inputs.runner-names }}
         GITHUB_ADMIN_TOKEN: ${{ inputs.github-admin-token }}
         GITHUB_API_VERSION: ${{ inputs.github-api-version }}
-      run: ${{ github.action_path }}/CheckStatus.sh ${{ inputs.runner-name }}
+      run: ${{ github.action_path }}/CheckStatus.sh 
       shell: bash

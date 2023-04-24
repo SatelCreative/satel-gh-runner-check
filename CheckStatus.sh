@@ -1,5 +1,5 @@
 #!/bin/bash
-RUNNER_NAMES=$1
+# RUNNER_NAMES=$1
 STATUSES=()
 
 function check_status(){
