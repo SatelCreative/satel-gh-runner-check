@@ -25,5 +25,5 @@ runs:
         GITHUB_ADMIN_TOKEN: ${{ inputs.github-admin-token }}
         GITHUB_API_VERSION: ${{ inputs.github-api-version }}
         RUNNER_NAME: ${{ inputs.runner-name }}
-      run: ${{ github.action_path }}/CheckStatus.sh  
+      run: echo ${{ inputs.runner-name }} # ${{ github.action_path }}/CheckStatus.sh  
       shell: bash
