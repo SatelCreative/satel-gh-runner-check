@@ -1,5 +1,5 @@
 #!/bin/bash
-
+RUNNER_NAME=$1
 echo "RUNNER_NAME=${RUNNER_NAME}"
 
 RESPONSE=$(curl -L \
