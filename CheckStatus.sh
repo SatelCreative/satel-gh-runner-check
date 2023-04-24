@@ -17,6 +17,7 @@ function check_status(){
 }
 
 runners=( ${RUNNER_NAMES} )
+echo "${runners[@]}"
 for runner in "${runners[@]}"
 do
 echo "${runner}"
