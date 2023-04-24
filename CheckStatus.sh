@@ -1,5 +1,4 @@
 #!/bin/bash
-# RUNNER_NAMES=$1
 STATUSES=()
 
 function check_status(){
@@ -12,15 +11,11 @@ function check_status(){
 
     STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
     STATUSES+=(${STATUS})
-    echo "STATUS=${STATUSES}"
-
 }
 
 runners=( ${RUNNER_NAMES} )
-echo "${runners[@]}"
 for runner in "${runners[@]}"
 do
-echo "${runner}"
 check_status "${runner}"
 done 
 
