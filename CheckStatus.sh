@@ -19,7 +19,8 @@ function check_status(){
 runners=( ${RUNNER_NAMES} )
 for runner in "${runners[@]}"
 do
-deploy_pr_branch_or_tag "${runners}"
+echo "${runner}"
+check_status "${runner}"
 done 
 
 # These outputs are used in other steps/jobs via action.yml
