@@ -8,7 +8,7 @@ RESPONSE=$(curl -L \
         -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
         https://api.github.com/orgs/SatelCreative/actions/runners)
 
-echo "RESPONSE=${RESPONSE}"
+RUNNER_NAME="cosmicray"
 
 STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
 
