@@ -11,10 +11,10 @@ inputs:
     description: Name of the self-hosted runner
     required: true  
 
-# outputs:
-#   status:  
-#     description: 'Status of the runner'
-#     value:  ${{ steps.status-check.outputs.status }}
+outputs:
+  status:  
+    description: 'Status of the runner'
+    value:  ${{ steps.status-check.outputs.status }}
 
 runs:
   using: "composite"
