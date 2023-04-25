@@ -1,4 +1,4 @@
-# GitHub runner status check 
+# GitHub self hosted status check 
 This centralized GitHub action checks status (online, offline) of a self hosted runnner 
 
 ## Usage 
