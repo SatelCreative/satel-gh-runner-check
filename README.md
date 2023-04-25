@@ -1,4 +1,4 @@
-# GitHub self hosted status check 
+# GitHub self-hosted runner status check 
 This centralized GitHub action checks status (online, offline) of a self hosted runnner 
 
 ## Usage 
@@ -25,5 +25,6 @@ jobs:
         
 And it can be used for other jobs as follows
 ```yml
- runs-on: "${{ needs.self-hosted-status.outputs.runner-status != 'offline' && 'self-hosted' || 'ubuntu-latest' }}"
+ # if self-hosted is offline, runs the job on a GitHub hosted runner
+ runs-on: "${{ needs.self-hosted-status.outputs.runner-status != 'offline' && 'self-hosted' || 'ubuntu-latest' }}" 
 ```
