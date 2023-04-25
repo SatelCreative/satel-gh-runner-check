@@ -10,7 +10,10 @@ inputs:
     required: true
   github-api-version:
     description: Stable api version
-    required: true  
+    required: true
+  org-name: 
+    description: Name of the organization
+    required: true     
 
 outputs:
   status:  
@@ -26,5 +29,6 @@ runs:
         RUNNER_NAMES: ${{ inputs.runner-names }}
         GITHUB_ADMIN_TOKEN: ${{ inputs.github-admin-token }}
         GITHUB_API_VERSION: ${{ inputs.github-api-version }}
+        ORG_NAME: ${{ inputs.org-name}}
       run: ${{ github.action_path }}/CheckStatus.sh 
       shell: bash

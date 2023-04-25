@@ -20,9 +20,10 @@ jobs:
           runner-names: <names-of-runners>  # "runner1 runner2"       
           github-admin-token: ${{ secrets.ADMIN_TOKEN }} # Should have access to manage runner
           github-api-version: "2022-11-28"
+          org-name": <organization-name>
 ```
         
-And it can be used for another jobs as follows
+And it can be used for other jobs as follows
 ```yml
  runs-on: "${{ needs.self-hosted-status.outputs.runner-status != 'offline' && 'self-hosted' || 'ubuntu-latest' }}"
 ```

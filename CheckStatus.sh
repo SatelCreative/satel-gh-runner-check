@@ -7,7 +7,7 @@ function check_status(){
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${GITHUB_ADMIN_TOKEN}" \
         -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-        https://api.github.com/orgs/SatelCreative/actions/runners)
+        https://api.github.com/orgs/${ORG_NAME}/actions/runners)
 
     STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
     STATUSES+=(${STATUS})
