@@ -5,6 +5,7 @@ This centralized GitHub action checks status (online, offline) of a self hosted 
 ```yml
 name: Runner status check
 on:
+  ... 
 
 jobs:
   self-hosted-status:
