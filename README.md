@@ -16,10 +16,8 @@ jobs:
       - name: Check runner status
         id: runnerstatus
         uses: SatelCreative/satel-gh-runner-check@1.0.0
-        with: 
-          runner-names: <names-of-runners>  # "runner1 runner2"       
+        with:       
           github-admin-token: ${{ secrets.ADMIN_TOKEN }} # Should have access to manage runner
-          github-api-version: "2022-11-28"
           org-name": <organization-name>
 ```
         
