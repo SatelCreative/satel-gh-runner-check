@@ -12,7 +12,8 @@ function check_status(){
     RUNNERS=$(echo "${RESPONSE}" | jq -r '.runners')
     echo "RUNNERS=${RUNNERS}"
     if [ "${RUNNERS}" = "null" ]; then
-        ERRORS+=("No runners found in the response.")
+        echo "Problem with the token"
+        exit 1
         return
     fi
     
