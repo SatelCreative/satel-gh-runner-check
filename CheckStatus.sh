@@ -10,7 +10,6 @@ function check_status(){
         https://api.github.com/orgs/${ORG_NAME}/actions/runners)
         
     RUNNERS=$(echo "${RESPONSE}" | jq -r '.runners')
-    echo "RUNNERS=${RUNNERS}"
     if [ "${RUNNERS}" = "null" ]; then
         echo "Problem with the token"
         exit 1
