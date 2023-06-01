@@ -11,6 +11,7 @@ function check_status() {
         "https://api.github.com/orgs/${ORG_NAME}/actions/runners")
 
     STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status" 2>&1)
+    echo ${STATUS}
     if [ $? -ne 0 ]; then
         ERRORS+=("${STATUS}")
     else
