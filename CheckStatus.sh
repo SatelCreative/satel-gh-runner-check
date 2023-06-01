@@ -9,9 +9,10 @@ function check_status() {
         -H "Authorization: Bearer ${GITHUB_ADMIN_TOKEN}" \
         -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
         "https://api.github.com/orgs/${ORG_NAME}/actions/runners")
-
+        
+    echo "RESPONSE=${RESPONSE}"
     STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status" 2>&1)
-    echo ${STATUS}
+    echo "STATUS=${STATUS}"
     if [ $? -ne 0 ]; then
         ERRORS+=("${STATUS}")
     else
