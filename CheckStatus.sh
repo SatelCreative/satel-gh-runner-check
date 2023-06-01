@@ -10,6 +10,7 @@ function check_status(){
         https://api.github.com/orgs/${ORG_NAME}/actions/runners)
         
     RUNNERS=$(echo "${RESPONSE}" | jq -r '.runners')
+    echo "RUNNERS=${RUNNERS}"
     if [ "${RUNNERS}" = "null" ]; then
         ERRORS+=("No runners found in the response.")
         return
