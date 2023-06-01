@@ -12,7 +12,7 @@ function check_status() {
         
     echo "RESPONSE=${RESPONSE}"
     STATUS=$(echo "${RESPONSE}" | jq -r --arg runnerName "${RUNNER_NAME}" \
-    '.runners | map(select(.name == $runnerName)) | .[0].status // "UNKNOWN"' 2>&1)
+    '.runners | map(select(.name == $runnerName)) | .[0].status || "UNKNOWN"' 2>&1)
     # STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status" 2>&1)
     echo "STATUS=${STATUS}"
     if [ $? -ne 0 ]; then
