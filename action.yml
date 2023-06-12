@@ -21,7 +21,7 @@ runs:
       id: status-check
       env: 
         RUNNER_NAMES: 'cosmicray beast'
-        GITHUB_ADMIN_TOKEN: ${{ inputs.github-admin-token }}
+        GITHUB_RUNNER_TOKEN: ${{ inputs.github-runner-token }}
         GITHUB_API_VERSION: '2022-11-28'
         ORG_NAME: ${{ inputs.org-name}}
       run: ${{ github.action_path }}/CheckStatus.sh 

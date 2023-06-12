@@ -5,7 +5,7 @@ function check_status(){
     RUNNER_NAME=$1
     RESPONSE=$(curl -L \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer ${GITHUB_ADMIN_TOKEN}" \
+        -H "Authorization: Bearer ${GITHUB_RUNNER_TOKEN}" \
         -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
         https://api.github.com/orgs/${ORG_NAME}/actions/runners)
  
