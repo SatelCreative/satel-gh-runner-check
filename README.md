@@ -17,7 +17,7 @@ jobs:
         id: runnerstatus
         uses: SatelCreative/satel-gh-runner-check@1.0.0
         with:       
-          github-admin-token: ${{ secrets.ADMIN_TOKEN }} # Should have access to manage runner
+          github-admin-token: ${{ secrets.SELF_HOSTED_RUNNER_TOKEN }} #Fine grained token with access to self hosted runners only 
           org-name": <organization-name>
 ```
         
