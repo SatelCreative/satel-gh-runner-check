@@ -2,8 +2,8 @@ name: Satel-github-runner-status
 description: Checks the status of a self-hosted runner
 
 inputs:
-  github-admin-token:
-    description: Token that can read runner data
+  github-runner-token:
+    description: Token that can read runner data of the organization
     required: true
   org-name: 
     description: Name of the organization
