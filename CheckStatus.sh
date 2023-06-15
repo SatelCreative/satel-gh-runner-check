@@ -27,4 +27,5 @@ check_status "${runner}"
 done 
 
 # These outputs are used in other steps/jobs via action.yml
-echo "::set-output name=status::${STATUSES[@]}"
+echo "status=${STATUSES[@]}" >> $GITHUB_OUTPUT
+#echo "::set-output name=status::${STATUSES[@]}"
