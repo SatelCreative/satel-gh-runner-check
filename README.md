@@ -24,5 +24,5 @@ jobs:
 And it can be used for other jobs as follows
 ```yml
  # if self-hosted is offline, runs the job on a GitHub hosted runner
- runs-on: "${{ needs.self-hosted-status.outputs.runner-status != 'offline' && 'self-hosted' || 'ubuntu-latest' }}" 
+ runs-on: ${{ contains(needs.self-hosted-status.outputs.runner-status, 'online') && 'self-hosted' || 'ubuntu-latest' }} 
 ```
