@@ -17,7 +17,7 @@ function check_status(){
     fi
 
     STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
-    echo "$RUNNER_NAME is $STATUS"
+    echo "${RUNNER_NAME} is ${STATUS}"
     STATUSES+=(${STATUS})
 }
 
