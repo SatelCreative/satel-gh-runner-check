@@ -1,5 +1,6 @@
 #!/bin/bash
 STATUSES=()
+RUNNER_STATUS=()
 
 function check_status(){
     RUNNER_NAME=$1
@@ -17,7 +18,7 @@ function check_status(){
     fi
 
     STATUS=$(echo "${RESPONSE}" | jq -r ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
-    echo "${RUNNER_NAME^^} IS ${STATUS^^}"
+    RUNNER_STATUS+=("$(echo "${RUNNER_NAME^^} IS ${STATUS^^}")")
     STATUSES+=("${STATUS^^}")
 }
 
@@ -29,3 +30,4 @@ done
 
 # These outputs are used in other steps/jobs via action.yml
 echo "status=${STATUSES[@]}" >> $GITHUB_OUTPUT
+echo "each_runner_status=${RUNNER_STATUS[@]}" >> $GITHUB_OUTPUT
