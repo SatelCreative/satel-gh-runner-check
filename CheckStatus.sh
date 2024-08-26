@@ -16,15 +16,15 @@ function check_status(){
         return
     fi
 
-    STATUS=$(echo "${RESPONSE}" | jq ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
+    STATUS=$(echo "${RESPONSE}" | jq -r ".runners[] | select(.name == \"${RUNNER_NAME}\") | .status")
     echo "${RUNNER_NAME} is ${STATUS}"
-    STATUSES+=(${STATUS})
+    STATUSES+=("${STATUS}")
 }
 
 runners=( ${RUNNER_NAMES} )
 for runner in "${runners[@]}"
 do
-check_status "${runner}"
+    check_status "${runner}"
 done 
 
 # These outputs are used in other steps/jobs via action.yml
