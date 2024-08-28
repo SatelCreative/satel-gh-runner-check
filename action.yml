@@ -13,6 +13,10 @@ outputs:
   status:  
     description: 'Status of the runner'
     value:  ${{ steps.status-check.outputs.status }}
+  each_runner_status:
+    description: 'Status of individual runner'
+    value:  ${{ steps.status-check.outputs.each_runner_status }}
+    
 
 runs:
   using: "composite"
